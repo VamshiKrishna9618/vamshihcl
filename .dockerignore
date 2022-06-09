@@ -1,0 +1,3 @@
+FROM nginx
+LABEL name=vamshi
+COPY . /usr/share/nginx/html/
