@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+ vamshiapp1: # name of app which can be anything
+   image: vamshihcl:appv1 # name of image i want to build
+   build: . # location of dockerfile 
+   container_name: vamshi111
+   ports:
+   - 1540:80
