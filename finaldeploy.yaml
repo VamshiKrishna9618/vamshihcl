@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vamshifinal-deploy
+  name: vamshifinal-deploy
+  namespace: vamshi-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vamshifinal-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: vamshifinal-deploy
+    spec:
+      containers:
+      - image: docker.io/vamshi15/vamshihcl:appfinal
+        name: vamshihcl
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vamshifinal-deploy
+  name: vamshilbl1540
+  namespace: vamshi-project
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: vamshifinal-deploy
+  type: NodePort
+status:
+  loadBalancer: {}
